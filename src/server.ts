@@ -1,13 +1,18 @@
-import express, { request } from 'express';
+import 'reflect-metadata';
+import express from 'express';
+import routes from './routes';
+import './database';
 
 const app = express();
+app.use(express.json());
 
-app.get('/', (request, response) => {
-    return response.json('API - Projeto Lizla v1.0');
-});
+app.use(routes);
+
+app.get('/', (request, response) => response.json('API - Projeto Lizla v1.0'));
 
 app.listen(process.env.PORT || 3333, () => {
-    console.log('Backend started');
+  // eslint-disable-next-line no-console
+  console.log('Backend started');
 });
 
 export default app;
