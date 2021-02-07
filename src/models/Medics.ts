@@ -1,23 +1,20 @@
 import {
-  Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,
+  Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column,
 } from 'typeorm';
 
-@Entity('users')
-class User {
+@Entity('medics')
+class Medics {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   name: string;
 
-  @Column()
-  email: string;
+  @Column({ name: 'date_of_birth' })
+  dateOfBirth: string;
 
   @Column()
-  password: string;
-
-  @Column({ name: 'phone_number' })
-  phoneNumber: string;
+  especiality: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
@@ -26,4 +23,4 @@ class User {
   updatedAt: Date;
 }
 
-export default User;
+export default Medics;

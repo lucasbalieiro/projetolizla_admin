@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import 'reflect-metadata';
 
 import express, { Request, Response, NextFunction } from 'express';
@@ -25,13 +26,13 @@ app.use((
       .status(err.statusCode)
       .json({ status: 'error', message: err.message });
   }
+  console.error(err.message);
   return response
     .status(500)
     .json({ status: 'error', message: 'Internal Server Error' });
 });
 
 app.listen(process.env.PORT || 3333, () => {
-  // eslint-disable-next-line no-console
   console.log('Backend started');
 });
 

@@ -27,6 +27,11 @@ export default class CreateUsers1612572945608 implements MigrationInterface {
             type: 'varchar',
           },
           {
+            name: 'phone_number',
+            type: 'varchar',
+            isUnique: true,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
